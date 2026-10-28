@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1: Atomic Structure & Amount of Substance Assessment</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .sticky-header { position: sticky; top: 0; z-index: 50; }
+        .input-focus { transition: all 0.2s ease-in-out; }
+        .input-focus:focus { border-color: #0284c7; box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2); }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen pb-20 text-slate-800">
+
+    <!-- Header / Progress Bar -->
+    <header class="sticky-header bg-white shadow-sm border-b border-slate-200 px-4 py-4">
+        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <span class="bg-sky-100 text-sky-800 px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider">A-Level / IB Chemistry</span>
+                <h1 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mt-1">Unit 1: Atomic Structure &amp; Amount of Substance</h1>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Time Remaining:</span>
+                <div id="timer-display" class="bg-slate-900 text-sky-400 border border-slate-800 px-4 py-2 rounded-xl font-mono text-xl font-bold shadow-inner">
+                    30:00
+                </div>
+            </div>
+        </div>
+        <div class="max-w-4xl mx-auto mt-4">
+            <div class="flex justify-between items-center text-xs text-slate-400 font-bold uppercase mb-1">
+                <span>Assessment Progress</span>
+                <span id="progress-percent">0% Completed</span>
+            </div>
+            <div class="h-2 bg-slate-100 rounded-full overflow-hidden">
+                <div id="progress-bar" class="h-full bg-sky-600 w-0 transition-all duration-500"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto p-4 mt-6 space-y-8">
+        
+        <div id="exam-content" class="space-y-10">
+            
+            <!-- Question 1 -->
+            <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+                <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+                    <span class="bg-sky-100 text-sky-800 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">Question 1</span>
+                    <span class="text-slate-500 text-sm font-semibold bg-slate-100 px-3 py-1 rounded-lg">4 Marks</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-bold text-slate-900">Isotopic Analysis of Copper in Semiconductor Manufacturing</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            A semiconductor manufacturer uses high-purity copper in microelectronic circuits. A quality-control laboratory analyses a copper sample using a time-of-flight mass spectrometer.
+                        </p>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            The sample contains two naturally occurring isotopes, ⁶³Cu and ⁶⁵Cu, with isotopic masses of 62.930 u and 64.928 u, respectively. The measured relative atomic mass of copper is 63.546.
+                        </p>
+                        <p class="text-slate-600 text-sm leading-relaxed text-xs text-slate-500">
+                            Both isotopes form singly charged positive ions that are accelerated through the same potential difference into a drift chamber of length <span class="italic">d</span>.
+                        </p>
+                    </div>
+                    <!-- Diagram Q1 -->
+                    <div class="flex justify-center">
+                        <svg viewBox="0 0 240 160" class="w-full max-w-[220px] h-auto bg-slate-50 rounded-2xl border border-slate-100 p-2">
+                            <!-- Acceleration Grid -->
+                            <rect x="25" y="45" width="10" height="70" rx="2" fill="#94a3b8"/>
+                            <rect x="42" y="45" width="10" height="70" rx="2" fill="#0284c7"/>
+                            <text x="38" y="38" class="text-[7px] font-bold fill-sky-800 text-center" text-anchor="middle">Accelerating Grid</text>
+                            
+                            <!-- Drift Tube -->
+                            <rect x="52" y="55" width="140" height="50" rx="4" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1.5"/>
+                            <line x1="52" y1="80" x2="192" y2="80" stroke="#94a3b8" stroke-dasharray="3,3"/>
+                            
+                            <!-- Ion 63Cu+ (Faster) -->
+                            <circle cx="160" cy="73" r="5" fill="#0284c7"/>
+                            <text x="160" y="65" class="text-[6.5px] font-bold fill-sky-700" text-anchor="middle">⁶³Cu⁺ (faster)</text>
+                            <line x1="165" y1="73" x2="182" y2="73" stroke="#0284c7" stroke-width="1.5" marker-end="url(#arrow-q1)"/>
+                            
+                            <!-- Ion 65Cu+ (Slower) -->
+                            <circle cx="115" cy="88" r="5.5" fill="#f59e0b"/>
+                            <text x="115" y="103" class="text-[6.5px] font-bold fill-amber-700" text-anchor="middle">⁶⁵Cu⁺ (slower)</text>
+                            <line x1="121" y1="88" x2="135" y2="88" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arrow-amber-q1)"/>
+                            
+                            <!-- Detector -->
+                            <rect x="195" y="50" width="12" height="60" rx="2" fill="#334155"/>
+                            <text x="201" y="122" class="text-[7px] font-bold fill-slate-700 text-center" text-anchor="middle">Detector</text>
+                            <text x="122" y="48" class="text-[7.5px] font-semibold fill-slate-500" text-anchor="middle">Flight Tube (Length d)</text>
+
+                            <defs>
+                                <marker id="arrow-q1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7" />
+                                </marker>
+                                <marker id="arrow-amber-q1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b" />
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-2">
+                    <!-- Q1 a -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+                        <label class="text-sm font-semibold text-slate-700">
+                            (a) Calculate the percentage abundance of each copper isotope in the sample. <span class="text-slate-400 font-normal">(2 marks)</span>
+                        </label>
+                        <div class="space-y-2">
+                            <div class="relative">
+                                <input type="text" id="q1_a1" placeholder="⁶³Cu abundance..." class="w-full p-2.5 pr-12 border border-slate-200 rounded-xl input-focus text-sm outline-none" oninput="updateProgress()">
+                                <span class="absolute right-4 top-2.5 text-slate-400 text-xs font-semibold">% ⁶³Cu</span>
+                            </div>
+                            <div class="relative">
+                                <input type="text" id="q1_a2" placeholder="⁶⁵Cu abundance..." class="w-full p-2.5 pr-12 border border-slate-200 rounded-xl input-focus text-sm outline-none" oninput="updateProgress()">
+                                <span class="absolute right-4 top-2.5 text-slate-400 text-xs font-semibold">% ⁶⁵Cu</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q1 b -->
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-slate-700">
+                            (b) Explain why the two isotopes produce separate peaks in the time-of-flight mass spectrum, even though both ions carry the same charge. <span class="text-slate-400 font-normal">(2 marks)</span>
+                        </label>
+                        <textarea id="q1_b" placeholder="Enter your scientific explanation here..." class="w-full p-3 border border-slate-200 rounded-xl input-focus text-sm outline-none" rows="3" oninput="updateProgress()"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Question 2 -->
+            <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+                <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+                    <span class="bg-sky-100 text-sky-800 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">Question 2</span>
+                    <span class="text-slate-500 text-sm font-semibold bg-slate-100 px-3 py-1 rounded-lg">4 Marks</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-bold text-slate-900">Determining the Formula of a Hydrated Transition Metal Salt</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            A chemical laboratory investigates hydrated nickel (II) sulfate, NiSO₄·<span class="italic">x</span>H₂O, used in electroplating.
+                        </p>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            A 7.89 g sample is heated until its mass becomes constant. The remaining anhydrous salt is dissolved in distilled water and reacted with excess aqueous sodium hydroxide, producing 2.76 g of dry nickel (II) hydroxide precipitate:
+                        </p>
+                        <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-center font-mono text-xs text-slate-700 font-semibold">
+                            NiSO₄(aq) + 2NaOH(aq) → Ni(OH)₂(s) + Na₂SO₄(aq)
+                        </div>
+                        <p class="text-slate-500 text-xs">
+                            <span class="font-semibold">Molar masses (g mol⁻¹):</span> Ni = 58.7, S = 32.1, O = 16.0, H = 1.0, Na = 23.0. [Ni(OH)₂ = 92.7, NiSO₄ = 154.8, H₂O = 18.0]
+                        </p>
+                    </div>
+                    <!-- Diagram Q2 -->
+                    <div class="flex justify-center">
+                        <svg viewBox="0 0 240 160" class="w-full max-w-[220px] h-auto bg-slate-50 rounded-2xl border border-slate-100 p-2">
+                            <!-- Crucible with Hydrated Salt -->
+                            <path d="M 25 50 L 35 85 Q 55 95 75 85 L 85 50 Z" fill="#cbd5e1" stroke="#475569" stroke-width="1.5"/>
+                            <ellipse cx="55" cy="50" rx="30" ry="8" fill="#e2e8f0" stroke="#475569" stroke-width="1.5"/>
+                            <ellipse cx="55" cy="54" rx="22" ry="5" fill="#0284c7" opacity="0.6"/>
+                            <text x="55" y="108" class="text-[7px] font-bold fill-slate-700 text-center" text-anchor="middle">7.89 g NiSO₄·xH₂O</text>
+                            
+                            <!-- Arrow representing heat & dissolve -->
+                            <line x1="93" y1="65" x2="135" y2="65" stroke="#0284c7" stroke-width="1.5" marker-end="url(#arrow-q2)"/>
+                            <text x="114" y="58" class="text-[6.5px] font-bold fill-sky-800 text-center" text-anchor="middle">+ excess NaOH</text>
+                            
+                            <!-- Beaker with precipitate -->
+                            <rect x="145" y="40" width="55" height="65" rx="3" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+                            <path d="M 146 75 L 146 102 Q 172 106 199 102 L 199 75 Z" fill="#bae6fd" opacity="0.4"/>
+                            <!-- Precipitate at bottom -->
+                            <ellipse cx="172.5" cy="98" rx="20" ry="4" fill="#059669"/>
+                            <text x="172.5" y="90" class="text-[6.5px] font-bold fill-emerald-800 text-center" text-anchor="middle">Ni(OH)₂ ppt</text>
+                            <text x="172.5" y="118" class="text-[7px] font-bold fill-slate-700 text-center" text-anchor="middle">2.76 g Precipitate</text>
+
+                            <defs>
+                                <marker id="arrow-q2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7" />
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-2">
+                    <!-- Q2 a -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+                        <label class="text-sm font-semibold text-slate-700">
+                            (a) Calculate the amount, in moles, of anhydrous nickel (II) sulfate originally present. <span class="text-slate-400 font-normal">(1 mark)</span>
+                        </label>
+                        <div class="relative">
+                            <input type="text" id="q2_a" placeholder="Enter moles..." class="w-full p-3 pr-14 border border-slate-200 rounded-xl input-focus text-sm outline-none" oninput="updateProgress()">
+                            <span class="absolute right-4 top-3 text-slate-400 text-xs font-semibold">mol</span>
+                        </div>
+                    </div>
+                    <!-- Q2 b -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+                        <label class="text-sm font-semibold text-slate-700">
+                            (b) Determine the value of <span class="italic">x</span> in NiSO₄·<span class="italic">x</span>H₂O (integer value). <span class="text-slate-400 font-normal">(3 marks)</span>
+                        </label>
+                        <div class="relative">
+                            <input type="text" id="q2_b" placeholder="Enter value of x..." class="w-full p-3 pr-14 border border-slate-200 rounded-xl input-focus text-sm outline-none" oninput="updateProgress()">
+                            <span class="absolute right-4 top-3 text-slate-400 text-xs font-semibold">x =</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Question 3 -->
+            <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+                <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+                    <span class="bg-sky-100 text-sky-800 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">Question 3</span>
+                    <span class="text-slate-500 text-sm font-semibold bg-slate-100 px-3 py-1 rounded-lg">4 Marks</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-bold text-slate-900">Producing Hydrogen for a Fuel Cell Vehicle</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            A research team investigates hydrogen production for a prototype fuel cell vehicle by reacting aluminium with hydrochloric acid:
+                        </p>
+                        <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-center font-mono text-xs text-slate-700 font-semibold">
+                            2Al(s) + 6HCl(aq) → 2AlCl₃(aq) + 3H₂(g)
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            During an experiment, 5.40 g of aluminium is added to 400 cm³ of 1.20 mol dm⁻³ hydrochloric acid. Assume complete reaction.
+                        </p>
+                        <p class="text-slate-500 text-xs">
+                            Take <span class="italic">A</span><sub>r</sub>(Al) = 27.0. Molar volume of gas at RTP = 24.0 dm³ mol⁻¹.
+                        </p>
+                    </div>
+                    <!-- Diagram Q3 -->
+                    <div class="flex justify-center">
+                        <svg viewBox="0 0 240 160" class="w-full max-w-[220px] h-auto bg-slate-50 rounded-2xl border border-slate-100 p-2">
+                            <!-- Conical Flask -->
+                            <path d="M 50 45 L 65 45 L 85 110 L 30 110 Z" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+                            <rect x="52" y="32" width="11" height="13" fill="#cbd5e1" stroke="#475569" stroke-width="1.2"/>
+                            <!-- Liquid inside -->
+                            <path d="M 40 92 L 75 92 L 83 108 L 32 108 Z" fill="#e0f2fe"/>
+                            <!-- Al pellets -->
+                            <circle cx="50" cy="103" r="2.5" fill="#64748b"/>
+                            <circle cx="58" cy="104" r="2.5" fill="#64748b"/>
+                            <circle cx="66" cy="103" r="2.5" fill="#64748b"/>
+                            <text x="58" y="125" class="text-[7px] font-bold fill-slate-700 text-center" text-anchor="middle">5.40 g Al + 400 cm³ HCl</text>
+                            
+                            <!-- Delivery Tube -->
+                            <path d="M 57 32 L 57 20 L 115 20 L 115 65" fill="none" stroke="#475569" stroke-width="2"/>
+                            
+                            <!-- Gas Syringe -->
+                            <rect x="110" y="60" width="105" height="26" rx="3" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+                            <rect x="150" y="62" width="62" height="22" fill="#bae6fd" opacity="0.3"/>
+                            <!-- Syringe plunger -->
+                            <rect x="180" y="63" width="6" height="20" fill="#0284c7"/>
+                            <line x1="186" y1="73" x2="225" y2="73" stroke="#0284c7" stroke-width="3"/>
+                            <!-- Syringe ticks -->
+                            <line x1="125" y1="60" x2="125" y2="67" stroke="#94a3b8"/>
+                            <line x1="140" y1="60" x2="140" y2="67" stroke="#94a3b8"/>
+                            <line x1="155" y1="60" x2="155" y2="67" stroke="#94a3b8"/>
+                            <line x1="170" y1="60" x2="170" y2="67" stroke="#94a3b8"/>
+                            
+                            <text x="160" y="52" class="text-[7.5px] font-bold fill-sky-800 text-center" text-anchor="middle">H₂(g) Collection at RTP</text>
+                            <text x="160" y="100" class="text-[7px] font-semibold fill-slate-500 text-center" text-anchor="middle">Gas Syringe</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-2">
+                    <!-- Q3 a -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+                        <label class="text-sm font-semibold text-slate-700">
+                            (a) State the limiting reactant and justify with your calculations. <span class="text-slate-400 font-normal">(2 marks)</span>
+                        </label>
+                        <div class="relative">
+                            <input type="text" id="q3_a" placeholder="State 'Al' or 'HCl' (or full name)..." class="w-full p-3 border border-slate-200 rounded-xl input-focus text-sm outline-none" oninput="updateProgress()">
+                        </div>
+                    </div>
+                    <!-- Q3 b -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+                        <label class="text-sm font-semibold text-slate-700">
+                            (b) Calculate the maximum volume of hydrogen gas produced at RTP, in dm³. <span class="text-slate-400 font-normal">(2 marks)</span>
+                        </label>
+                        <div class="relative">
+                            <input type="text" id="q3_b" placeholder="Enter volume in dm³..." class="w-full p-3 pr-14 border border-slate-200 rounded-xl input-focus text-sm outline-none" oninput="updateProgress()">
+                            <span class="absolute right-4 top-3 text-slate-400 text-xs font-semibold">dm³</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Question 4 -->
+            <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+                <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+                    <span class="bg-sky-100 text-sky-800 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">Question 4</span>
+                    <span class="text-slate-500 text-sm font-semibold bg-slate-100 px-3 py-1 rounded-lg">4 Marks</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-bold text-slate-900">Industrial Production of Ammonia for Fertilisers</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            A fertiliser manufacturer produces ammonia using the Haber process:
+                        </p>
+                        <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-center font-mono text-xs text-slate-700 font-semibold">
+                            N₂(g) + 3H₂(g) ⇌ 2NH₃(g)
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            During a production trial, 280 kg of nitrogen and 48.0 kg of hydrogen are introduced into a reactor. At the end of the reaction, 204 kg of ammonia is collected.
+                        </p>
+                        <p class="text-slate-500 text-xs">
+                            <span class="font-semibold">Molar masses (g mol⁻¹):</span> N₂ = 28.0, H₂ = 2.0, NH₃ = 17.0.
+                        </p>
+                    </div>
+                    <!-- Diagram Q4 -->
+                    <div class="flex justify-center">
+                        <svg viewBox="0 0 240 160" class="w-full max-w-[220px] h-auto bg-slate-50 rounded-2xl border border-slate-100 p-2">
+                            <!-- Reactor Vessel -->
+                            <rect x="75" y="30" width="90" height="95" rx="15" fill="#334155" stroke="#1e293b" stroke-width="2"/>
+                            <text x="120" y="50" class="text-[8px] font-bold fill-white text-center" text-anchor="middle">Haber Reactor</text>
+                            
+                            <!-- Catalyst Bed -->
+                            <rect x="88" y="60" width="64" height="25" rx="4" fill="#64748b"/>
+                            <text x="120" y="75" class="text-[7px] font-bold fill-slate-200 text-center" text-anchor="middle">Fe Catalyst Bed</text>
+                            <text x="120" y="105" class="text-[6.5px] fill-amber-300 text-center" text-anchor="middle">450 °C | 200 atm</text>
+                            
+                            <!-- Inflow Feeds -->
+                            <line x1="20" y1="45" x2="75" y2="45" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow-flow)"/>
+                            <text x="45" y="38" class="text-[6.5px] font-bold fill-sky-700" text-anchor="middle">280 kg N₂</text>
+                            
+                            <line x1="20" y1="95" x2="75" y2="95" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow-flow)"/>
+                            <text x="45" y="88" class="text-[6.5px] font-bold fill-sky-700" text-anchor="middle">48.0 kg H₂</text>
+                            
+                            <!-- Product Outflow -->
+                            <line x1="165" y1="75" x2="215" y2="75" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+                            <text x="195" y="67" class="text-[6.5px] font-bold fill-emerald-700" text-anchor="middle">204 kg NH₃</text>
+                            <text x="195" y="90" class="text-[6px] font-semibold fill-slate-400" text-anchor="middle">(Actual yield)</text>
+
+                            <defs>
+                                <marker id="arrow-flow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7" />
+                                </marker>
+                                <marker id="arrow-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" />
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-2">
+                    <!-- Q4 a -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+                        <label class="text-sm font-semibold text-slate-700">
+                            (a) Identify the limiting reactant and calculate the theoretical mass of ammonia that could be produced, in kg. <span class="text-slate-400 font-normal">(2 marks)</span>
+                        </label>
+                        <div class="space-y-2">
+                            <input type="text" id="q4_a1" placeholder="Limiting reactant (N₂ or H₂)..." class="w-full p-2.5 border border-slate-200 rounded-xl input-focus text-sm outline-none" oninput="updateProgress()">
+                            <div class="relative">
+                                <input type="text" id="q4_a2" placeholder="Theoretical mass..." class="w-full p-2.5 pr-14 border border-slate-200 rounded-xl input-focus text-sm outline-none" oninput="updateProgress()">
+                                <span class="absolute right-4 top-2.5 text-slate-400 text-xs font-semibold">kg NH₃</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q4 b -->
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-slate-700">
+                            (b) Calculate the percentage yield of ammonia and explain why the actual yield is lower than the theoretical yield with reference to the Haber process conditions. <span class="text-slate-400 font-normal">(2 marks)</span>
+                        </label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div class="relative sm:col-span-1">
+                                <input type="text" id="q4_b1" placeholder="Percentage yield..." class="w-full p-3 pr-12 border border-slate-200 rounded-xl input-focus text-sm outline-none" oninput="updateProgress()">
+                                <span class="absolute right-4 top-3 text-slate-400 text-sm font-semibold">%</span>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <textarea id="q4_b2" placeholder="Explain why the yield is incomplete (equilibrium, rate compromise, recycle)..." class="w-full p-3 border border-slate-200 rounded-xl input-focus text-sm outline-none" rows="2" oninput="updateProgress()"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Question 5 -->
+            <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+                <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+                    <span class="bg-sky-100 text-sky-800 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">Question 5</span>
+                    <span class="text-slate-500 text-sm font-semibold bg-slate-100 px-3 py-1 rounded-lg">4 Marks</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-bold text-slate-900">Comparing Industrial Methods of Producing Ethanoic Acid</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            A chemical manufacturer evaluates two routes for producing ethanoic acid (CH₃COOH, <span class="italic">M</span><sub>r</sub> = 60.0):
+                        </p>
+                        <div class="bg-slate-50 p-2 rounded-xl border border-slate-100 text-xs font-mono space-y-1">
+                            <p><span class="font-bold text-slate-800">Process A (Oxidation of ethanol):</span> C₂H₅OH + O₂ → CH₃COOH + H₂O (Yield: 82%)</p>
+                            <p><span class="font-bold text-slate-800">Process B (Carbonylation of methanol):</span> CH₃OH + CO → CH₃COOH (Yield: 96%)</p>
+                        </div>
+                        <p class="text-slate-500 text-xs">
+                            <span class="font-semibold">Molar masses (g mol⁻¹):</span> C₂H₅OH = 46.0, O₂ = 32.0, H₂O = 18.0, CH₃OH = 32.0, CO = 28.0.
+                        </p>
+                    </div>
+                    <!-- Diagram Q5 -->
+                    <div class="flex justify-center">
+                        <svg viewBox="0 0 240 160" class="w-full max-w-[220px] h-auto bg-slate-50 rounded-2xl border border-slate-100 p-2">
+                            <!-- Process A Flow -->
+                            <rect x="15" y="25" width="90" height="45" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.2"/>
+                            <text x="60" y="42" class="text-[7.5px] font-bold fill-sky-950 text-center" text-anchor="middle">Process A: Oxidation</text>
+                            <text x="60" y="55" class="text-[6.5px] fill-sky-800 text-center" text-anchor="middle">Produces CH₃COOH + H₂O</text>
+                            <text x="60" y="64" class="text-[6.5px] font-bold fill-rose-600 text-center" text-anchor="middle">H₂O By-product</text>
+                            
+                            <!-- Process B Flow -->
+                            <rect x="15" y="90" width="90" height="45" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"/>
+                            <text x="60" y="107" class="text-[7.5px] font-bold fill-emerald-950 text-center" text-anchor="middle">Process B: Carbonylation</text>
+                            <text x="60" y="120" class="text-[6.5px] fill-emerald-800 text-center" text-anchor="middle">Only 1 Product Formed</text>
+                            <text x="60" y="129" class="text-[6.5px] font-bold fill-emerald-700 text-center" text-anchor="middle">100% Atom Economy</text>
+                            
+                            <!-- Comparison arrow -->
+                            <line x1="115" y1="48" x2="145" y2="48" stroke="#0284c7" stroke-width="1.5"/>
+                            <line x1="115" y1="112" x2="145" y2="112" stroke="#16a34a" stroke-width="1.5"/>
+                            <line x1="145" y1="48" x2="145" y2="112" stroke="#64748b" stroke-width="1.5"/>
+                            <line x1="145" y1="80" x2="165" y2="80" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-scale)"/>
+                            
+                            <!-- Evaluation badge -->
+                            <rect x="165" y="60" width="65" height="40" rx="8" fill="#334155"/>
+                            <text x="197.5" y="77" class="text-[7px] font-bold fill-amber-300 text-center" text-anchor="middle">Sustainability</text>
+                            <text x="197.5" y="89" class="text-[6px] fill-slate-200 text-center" text-anchor="middle">Feedstock &amp; Toxicity</text>
+
+                            <defs>
+                                <marker id="arrow-scale" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" />
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-2">
+                    <!-- Q5 a -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+                        <label class="text-sm font-semibold text-slate-700">
+                            (a) Calculate the atom economy for the production of ethanoic acid using each process. <span class="text-slate-400 font-normal">(2 marks)</span>
+                        </label>
+                        <div class="space-y-2">
+                            <div class="relative">
+                                <input type="text" id="q5_a1" placeholder="Process A atom economy..." class="w-full p-2.5 pr-14 border border-slate-200 rounded-xl input-focus text-sm outline-none" oninput="updateProgress()">
+                                <span class="absolute right-4 top-2.5 text-slate-400 text-xs font-semibold">% (A)</span>
+                            </div>
+                            <div class="relative">
+                                <input type="text" id="q5_a2" placeholder="Process B atom economy..." class="w-full p-2.5 pr-14 border border-slate-200 rounded-xl input-focus text-sm outline-none" oninput="updateProgress()">
+                                <span class="absolute right-4 top-2.5 text-slate-400 text-xs font-semibold">% (B)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q5 b -->
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-slate-700">
+                            (b) A chemical engineer argues that carbonylation of methanol is always the more sustainable process because it has a higher atom economy and percentage yield. Evaluate this claim with reference to feedstock sustainability, energy requirements and environmental impacts. <span class="text-slate-400 font-normal">(2 marks)</span>
+                        </label>
+                        <textarea id="q5_b" placeholder="Evaluate the claim (fossil vs renewable feedstocks, toxic CO hazard, high temperature/pressure energy costs)..." class="w-full p-3 border border-slate-200 rounded-xl input-focus text-sm outline-none" rows="3" oninput="updateProgress()"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Submit Section -->
+            <div class="flex flex-col items-center gap-2 pt-6">
+                <button onclick="confirmSubmission()" id="submit-btn" class="bg-sky-600 hover:bg-sky-700 text-white font-extrabold px-12 py-4 rounded-2xl shadow-lg hover:shadow-sky-200 transform active:scale-95 transition-all text-xl flex items-center gap-3">
+                    <i class="fa-solid fa-paper-plane text-lg"></i> Complete &amp; Mark Assessment
+                </button>
+                <p class="text-slate-400 text-xs font-semibold uppercase tracking-wider">Ensure all fields are answered before submitting</p>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results-section" class="hidden space-y-8">
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xl text-center space-y-6">
+                <h2 class="text-3xl font-extrabold text-slate-950">Assessment Summary Feedback</h2>
+                
+                <div id="grade-badge" class="inline-block px-8 py-3 rounded-2xl text-white font-black text-3xl tracking-wide shadow-md">
+                    GRADE A* / IB GRADE 7
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-slate-50 border border-slate-100 p-5 rounded-2xl">
+                        <p class="text-xs text-slate-400 uppercase font-black tracking-widest">Calculated Score</p>
+                        <p id="final-score" class="text-4xl font-extrabold text-slate-800 mt-1">18 / 20</p>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-100 p-5 rounded-2xl">
+                        <p class="text-xs text-slate-400 uppercase font-black tracking-widest">Percentage</p>
+                        <p id="final-percent" class="text-4xl font-extrabold text-slate-800 mt-1">90%</p>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-100 p-5 rounded-2xl">
+                        <p class="text-xs text-slate-400 uppercase font-black tracking-widest">Time Spent</p>
+                        <p id="final-time" class="text-4xl font-extrabold text-slate-800 mt-1">12:45</p>
+                    </div>
+                </div>
+
+                <div class="text-left border-t border-slate-100 pt-6">
+                    <h3 class="text-xl font-extrabold text-slate-900 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-square-poll-horizontal text-sky-600"></i> Question Breakdown &amp; Examiner Mark Scheme
+                    </h3>
+                    <div id="feedback-container" class="space-y-8">
+                        <!-- Dynamic Feedback injected here -->
+                    </div>
+                </div>
+
+                <div class="pt-6 border-t border-slate-100 flex justify-center">
+                    <button onclick="window.location.reload()" class="bg-slate-900 hover:bg-slate-800 text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-md flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-left"></i> Retake Practice Assessment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal overlay for confirmation -->
+    <div id="confirm-modal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-slate-100 space-y-6">
+            <div class="text-center space-y-2">
+                <div class="w-16 h-16 bg-amber-50 rounded-full flex items-center justify-center mx-auto text-amber-500 border border-amber-100">
+                    <i class="fa-solid fa-triangle-exclamation text-2xl"></i>
+                </div>
+                <h4 class="text-xl font-black text-slate-900">Submit Assessment?</h4>
+                <p class="text-slate-500 text-sm">You are about to submit your chemistry responses. The automated marking system will grade your calculations and explanations against the official mark scheme.</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="toggleModal(false)" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-sm transition-all">
+                    Keep Reviewing
+                </button>
+                <button onclick="finishExam()" class="flex-1 py-3 bg-sky-600 hover:bg-sky-700 text-white rounded-xl font-bold text-sm transition-all shadow-md">
+                    Yes, Mark Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let timeLeft = 30 * 60; // 30 minutes in seconds
+        let timerInterval;
+        const totalMarks = 20;
+        const inputsCount = 10; // 10 distinct interactive inputs
+
+        // Official Chemistry Mark Schemes & Tolerances
+        const criteria = {
+            q1: {
+                title: "Question 1: Isotopic Analysis of Copper in Semiconductor Manufacturing",
+                a: {
+                    type: "multi-number",
+                    values: { a1: 69.17, a2: 30.83 }, // 69.17% 63Cu, 30.83% 65Cu
+                    tolerance: 0.02,
+                    solution: `Let percentage abundance of ⁶³Cu = y, then ⁶⁵Cu = (100 - y):<br>
+                               63.546 = [62.930y + 64.928(100 - y)] / 100<br>
+                               6354.6 = 62.930y + 6492.8 - 64.928y<br>
+                               1.998y = 138.2  ⟹  <strong>y (⁶³Cu) = 69.17%</strong> (accept 69.1 - 69.2%)<br>
+                               <strong>⁶⁵Cu = 100 - 69.17 = 30.83%</strong> (accept 30.8 - 30.9%)`,
+                    weight: 2
+                },
+                b: {
+                    type: "description",
+                    keywords: ["kinetic energy", "velocity", "speed", "mass", "time", "reach", "slower", "lighter", "heavier", "ke = 1/2 mv^2", "half mv^2"],
+                    solution: `• Both singly charged positive ions have the same charge and are accelerated through the same potential difference, so they gain the <strong>same kinetic energy (KE)</strong>.<br>
+                               • Since KE = ½mv², velocity v = √(2KE / m). The lighter isotope (⁶³Cu⁺) has a lower mass and therefore moves with a <strong>greater velocity</strong> than the heavier ⁶⁵Cu⁺ ion.<br>
+                               • Because time of flight t = d / v, the lighter ions take less time to travel the flight tube and <strong>arrive at the detector earlier</strong>, producing two distinct time peaks.`,
+                    weight: 2
+                }
+            },
+            q2: {
+                title: "Question 2: Determining the Formula of a Hydrated Transition Metal Salt",
+                a: {
+                    type: "number",
+                    value: [0.0298, 0.030, 0.02977],
+                    tolerance: 0.03,
+                    solution: `Molar mass of Ni(OH)₂ = 58.7 + 2×(16.0 + 1.0) = 92.7 g mol⁻¹.<br>
+                               Moles of Ni(OH)₂ precipitate = 2.76 g / 92.7 g mol⁻¹ = <strong>0.02977 mol</strong> (accept 0.0298 or 0.030 mol).<br>
+                               From the 1:1 stoichiometric ratio, moles of NiSO₄ originally present = <strong>0.0298 mol</strong>.`,
+                    weight: 1
+                },
+                b: {
+                    type: "number",
+                    value: [6, 6.0, 5.95],
+                    tolerance: 0.04,
+                    solution: `• Moles of NiSO₄ = 0.02977 mol.<br>
+                               • Molar mass of anhydrous NiSO₄ = 58.7 + 32.1 + 4(16.0) = 154.8 g mol⁻¹.<br>
+                               • Mass of anhydrous NiSO₄ = 0.02977 mol × 154.8 g mol⁻¹ = 4.608 g.<br>
+                               • Mass of water lost = 7.89 g - 4.608 g = 3.282 g.<br>
+                               • Moles of H₂O = 3.282 g / 18.0 g mol⁻¹ = 0.1823 mol.<br>
+                               • Ratio x = n(H₂O) / n(NiSO₄) = 0.1823 / 0.02977 = 6.12  ⟹  <strong>x = 6</strong> (Formula: NiSO₄·6H₂O).`,
+                    weight: 3
+                }
+            },
+            q3: {
+                title: "Question 3: Producing Hydrogen for a Fuel Cell Vehicle",
+                a: {
+                    type: "limiting_reactant",
+                    expected: "al",
+                    solution: `• Moles of Al = 5.40 g / 27.0 g mol⁻¹ = <strong>0.200 mol</strong>.<br>
+                               • Moles of HCl = c × V = 1.20 mol dm⁻³ × 0.400 dm³ = <strong>0.480 mol</strong>.<br>
+                               • Stoichiometric ratio required: 2 mol Al requires 6 mol HCl (i.e. 1 mol Al requires 3 mol HCl).<br>
+                               • For 0.200 mol Al, required moles of HCl = 0.200 × 3 = 0.600 mol.<br>
+                               • We only have 0.480 mol HCl, which means <strong>HCl is the limiting reactant</strong> (or Al is in excess by 0.04 mol).`,
+                    weight: 2
+                },
+                b: {
+                    type: "number",
+                    value: [5.76, 5.8],
+                    tolerance: 0.03,
+                    solution: `• Limiting reactant is HCl (0.480 mol).<br>
+                               • From the stoichiometry: 6 mol HCl produces 3 mol H₂ (a 2 : 1 ratio).<br>
+                               • Moles of H₂ produced = 0.480 / 2 = <strong>0.240 mol</strong>.<br>
+                               • Volume of H₂ gas at RTP = 0.240 mol × 24.0 dm³ mol⁻¹ = <strong>5.76 dm³</strong> (or 5760 cm³).<br>
+                               <em>(Note: If Al were incorrectly assumed limiting, 0.200 × 1.5 × 24 = 7.2 dm³ is awarded error carried forward where applicable).</em>`,
+                    weight: 2
+                }
+            },
+            q4: {
+                title: "Question 4: Industrial Production of Ammonia for Fertilisers",
+                a: {
+                    type: "multi-part-4a",
+                    solution: `• Moles of N₂ = 280,000 g / 28.0 g mol⁻¹ = 10,000 mol.<br>
+                               • Moles of H₂ = 48,000 g / 2.0 g mol⁻¹ = 24,000 mol.<br>
+                               • 1 mol N₂ requires 3 mol H₂. Therefore, 10,000 mol N₂ requires 30,000 mol H₂.<br>
+                               • Only 24,000 mol H₂ is available, so <strong>Hydrogen (H₂) is the limiting reactant</strong>.<br>
+                               • Moles of NH₃ produced = 24,000 × (2/3) = 16,000 mol.<br>
+                               • Theoretical mass = 16,000 mol × 17.0 g mol⁻¹ = 272,000 g = <strong>272 kg</strong>.`,
+                    weight: 2
+                },
+                b: {
+                    type: "multi-part-4b",
+                    valueYield: 75.0, // 204 / 272 = 75%
+                    keywords: ["equilibrium", "reversible", "incomplete", "compromise", "rate", "yield", "recycled", "backward", "exothermic"],
+                    solution: `• <strong>Percentage yield:</strong> (Actual / Theoretical) × 100 = (204 kg / 272 kg) × 100 = <strong>75.0%</strong>.<br>
+                               • <strong>Reason:</strong> The Haber process is a dynamic <strong>reversible reaction</strong> that reaches equilibrium (N₂ + 3H₂ ⇌ 2NH₃), so not all reactants are converted into products. Furthermore, the operating temperature of 450 °C is a compromise between reaction rate and yield (as the forward reaction is exothermic, high temperature favors the reverse reaction). Unreacted N₂ and H₂ must be continuously recycled.`,
+                    weight: 2
+                }
+            },
+            q5: {
+                title: "Question 5: Comparing Industrial Methods of Producing Ethanoic Acid",
+                a: {
+                    type: "multi-number",
+                    values: { a1: 76.92, a2: 100 },
+                    tolerance: 0.03,
+                    solution: `• Atom economy = [Mr of desired product / Total Mr of all reactants] × 100%<br>
+                               • <strong>Process A:</strong> C₂H₅OH (46.0) + O₂ (32.0) → CH₃COOH (60.0) + H₂O (18.0)<br>
+                                 Atom economy = [60.0 / (46.0 + 32.0)] × 100 = (60.0 / 78.0) × 100 = <strong>76.9%</strong>.<br>
+                               • <strong>Process B:</strong> CH₃OH (32.0) + CO (28.0) → CH₃COOH (60.0)<br>
+                                 Only one product is formed (addition reaction), so Atom economy = <strong>100%</strong>.`,
+                    weight: 2
+                },
+                b: {
+                    type: "description",
+                    keywords: ["renewable", "non-renewable", "fossil", "toxic", "poisonous", "carbon monoxide", "fermentation", "feedstock", "crude oil", "energy", "safety", "hazard"],
+                    solution: `• <strong>Feedstock origin:</strong> In Process A, ethanol can be sustainably produced via fermentation of renewable biomass (e.g. crops/glucose), whereas in Process B, methanol and carbon monoxide are predominantly derived from non-renewable fossil fuels (coal or natural gas steam reforming).<br>
+                               • <strong>Hazards & Safety:</strong> Carbon monoxide used in Process B is a highly toxic, flammable gas requiring stringent containment, high pressures, and corrosive catalysts (e.g. Monsanto/Cativa iodide catalysts), posing significant environmental and safety risks compared to Process A using O₂.<br>
+                               • <strong>Conclusion:</strong> High atom economy alone does not guarantee overall sustainability; life-cycle assessment (feedstock renewability, energy demands, and toxicity) must be considered.`,
+                    weight: 2
+                }
+            }
+        };
+
+        window.onload = function() {
+            startTimer();
+        };
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    finishExam();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            const display = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            const timerEl = document.getElementById('timer-display');
+            timerEl.innerText = display;
+            
+            if (timeLeft < 300) { // Last 5 minutes
+                timerEl.classList.remove('bg-slate-900', 'text-sky-400');
+                timerEl.classList.add('bg-rose-600', 'text-white', 'animate-pulse');
+            }
+        }
+
+        function updateProgress() {
+            let answered = 0;
+            const textareas = document.querySelectorAll('textarea');
+            const inputs = document.querySelectorAll('input[type="text"]');
+            
+            textareas.forEach(t => { if (t.value.trim().length > 3) answered++; });
+            inputs.forEach(i => { if (i.value.trim().length > 0) answered++; });
+
+            const percentage = Math.min(Math.round((answered / inputsCount) * 100), 100);
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percent').innerText = `${percentage}% Completed`;
+        }
+
+        function parseChemNumber(str) {
+            if (!str) return NaN;
+            let s = str.trim().toLowerCase().replace(/\s+/g, '');
+            s = s.replace(/,/g, '');
+            s = s.replace(/%/g, '');
+            s = s.replace(/kg/g, '');
+            s = s.replace(/dm³/g, '');
+            s = s.replace(/dm3/g, '');
+            s = s.replace(/mol/g, '');
+            s = s.replace(/[^0-9\.e\-+]/g, '');
+            return parseFloat(s);
+        }
+
+        function scorePart(qKey, partKey, subCrit) {
+            if (qKey === 'q1') {
+                if (partKey === 'a') {
+                    const u1 = parseChemNumber(document.getElementById('q1_a1').value);
+                    const u2 = parseChemNumber(document.getElementById('q1_a2').value);
+                    let mark = 0;
+                    if (!isNaN(u1) && Math.abs(u1 - subCrit.values.a1) / subCrit.values.a1 <= subCrit.tolerance) mark++;
+                    if (!isNaN(u2) && Math.abs(u2 - subCrit.values.a2) / subCrit.values.a2 <= subCrit.tolerance) mark++;
+                    return {
+                        mark: mark,
+                        weight: subCrit.weight,
+                        userVal: `⁶³Cu: ${document.getElementById('q1_a1').value || 'none'}, ⁶⁵Cu: ${document.getElementById('q1_a2').value || 'none'}`,
+                        feedback: mark === 2 ? "Fully correct isotopic abundances!" : (mark === 1 ? "One isotope abundance correct." : "Calculated values outside acceptable range."),
+                        solution: subCrit.solution
+                    };
+                } else {
+                    const txt = document.getElementById('q1_b').value.toLowerCase().trim();
+                    let hits = subCrit.keywords.filter(k => txt.includes(k)).length;
+                    let mark = hits >= 3 ? 2 : (hits >= 1 ? 1 : 0);
+                    return {
+                        mark: mark,
+                        weight: subCrit.weight,
+                        userVal: document.getElementById('q1_b').value,
+                        feedback: mark === 2 ? "Excellent! Correlated equal KE, mass difference, and velocity to time-of-flight." : (mark === 1 ? "Partial credit: Identified mass or velocity difference but missing full connection." : "Missing core physical principles of TOF separation."),
+                        solution: subCrit.solution
+                    };
+                }
+            } else if (qKey === 'q2') {
+                if (partKey === 'a') {
+                    const u = parseChemNumber(document.getElementById('q2_a').value);
+                    let isCorrect = false;
+                    subCrit.value.forEach(v => {
+                        if (Math.abs(u - v) / v <= subCrit.tolerance) isCorrect = true;
+                    });
+                    return {
+                        mark: isCorrect ? 1 : 0,
+                        weight: 1,
+                        userVal: document.getElementById('q2_a').value,
+                        feedback: isCorrect ? "Correct molar amount calculated!" : "Incorrect moles. Ensure correct Mr of Ni(OH)₂ (92.7 g mol⁻¹).",
+                        solution: subCrit.solution
+                    };
+                } else {
+                    const u = parseChemNumber(document.getElementById('q2_b').value);
+                    let isCorrect = (!isNaN(u) && (Math.round(u) === 6 || Math.abs(u - 6) <= 0.3));
+                    return {
+                        mark: isCorrect ? 3 : (Math.round(u) > 0 ? 1 : 0),
+                        weight: 3,
+                        userVal: document.getElementById('q2_b').value,
+                        feedback: isCorrect ? "Correct formula deduction: x = 6!" : "Incorrect value for x.",
+                        solution: subCrit.solution
+                    };
+                }
+            } else if (qKey === 'q3') {
+                if (partKey === 'a') {
+                    const txt = document.getElementById('q3_a').value.toLowerCase().trim();
+                    let isHCl = (txt.includes('hcl') || txt.includes('hydrochloric') || txt.includes('acid')) && !txt.includes('al is limiting');
+                    return {
+                        mark: isHCl ? 2 : 0,
+                        weight: 2,
+                        userVal: document.getElementById('q3_a').value,
+                        feedback: isHCl ? "Correct! Hydrochloric acid (HCl) is the limiting reactant." : "Incorrect limiting reactant. Calculate stoichiometric ratio: 0.20 mol Al needs 0.60 mol HCl.",
+                        solution: subCrit.solution
+                    };
+                } else {
+                    const u = parseChemNumber(document.getElementById('q3_b').value);
+                    let isCorrect = (!isNaN(u) && subCrit.value.some(v => Math.abs(u - v) / v <= subCrit.tolerance));
+                    let isAlLimitingEcf = (!isNaN(u) && Math.abs(u - 7.2) / 7.2 <= 0.04);
+                    let mark = isCorrect ? 2 : (isAlLimitingEcf ? 1 : 0);
+                    return {
+                        mark: mark,
+                        weight: 2,
+                        userVal: document.getElementById('q3_b').value,
+                        feedback: isCorrect ? "Correct volume: 5.76 dm³!" : (isAlLimitingEcf ? "Error Carried Forward: 7.2 dm³ based on Al being limiting." : "Incorrect gas volume calculation."),
+                        solution: subCrit.solution
+                    };
+                }
+            } else if (qKey === 'q4') {
+                if (partKey === 'a') {
+                    const rTxt = document.getElementById('q4_a1').value.toLowerCase();
+                    const mass = parseChemNumber(document.getElementById('q4_a2').value);
+                    let reactantCorrect = (rTxt.includes('h2') || rTxt.includes('hydrogen')) && !rTxt.includes('n2 is limiting');
+                    let massCorrect = (!isNaN(mass) && Math.abs(mass - 272) / 272 <= 0.03);
+                    let mark = (reactantCorrect ? 1 : 0) + (massCorrect ? 1 : 0);
+                    return {
+                        mark: mark,
+                        weight: 2,
+                        userVal: `Reactant: ${document.getElementById('q4_a1').value || 'none'}, Mass: ${document.getElementById('q4_a2').value || 'none'}`,
+                        feedback: mark === 2 ? "Fully correct: H₂ limiting with 272 kg theoretical ammonia!" : (mark === 1 ? "1 mark awarded (either limiting reactant or theoretical mass correct)." : "Incorrect identification and theoretical yield."),
+                        solution: subCrit.solution
+                    };
+                } else {
+                    const yVal = parseChemNumber(document.getElementById('q4_b1').value);
+                    const expl = document.getElementById('q4_b2').value.toLowerCase();
+                    let yCorrect = (!isNaN(yVal) && Math.abs(yVal - subCrit.valueYield) <= 1.0);
+                    let hits = subCrit.keywords.filter(k => expl.includes(k)).length;
+                    let explCorrect = hits >= 1;
+                    let mark = (yCorrect ? 1 : 0) + (explCorrect ? 1 : 0);
+                    return {
+                        mark: mark,
+                        weight: 2,
+                        userVal: `Yield: ${document.getElementById('q4_b1').value || 'none'}%, Explanation: ${document.getElementById('q4_b2').value || 'none'}`,
+                        feedback: mark === 2 ? "Correct percentage yield (75.0%) and physical justification!" : (mark === 1 ? "Partial credit (yield or explanation credited)." : "Missing percentage yield or dynamic equilibrium explanation."),
+                        solution: subCrit.solution
+                    };
+                }
+            } else if (qKey === 'q5') {
+                if (partKey === 'a') {
+                    const a1 = parseChemNumber(document.getElementById('q5_a1').value);
+                    const a2 = parseChemNumber(document.getElementById('q5_a2').value);
+                    let m1 = (!isNaN(a1) && Math.abs(a1 - subCrit.values.a1) / subCrit.values.a1 <= subCrit.tolerance);
+                    let m2 = (!isNaN(a2) && Math.abs(a2 - 100) <= 0.5);
+                    let mark = (m1 ? 1 : 0) + (m2 ? 1 : 0);
+                    return {
+                        mark: mark,
+                        weight: 2,
+                        userVal: `Process A: ${document.getElementById('q5_a1').value || 'none'}%, Process B: ${document.getElementById('q5_a2').value || 'none'}%`,
+                        feedback: mark === 2 ? "Both atom economies calculated accurately (76.9% & 100%)!" : (mark === 1 ? "One atom economy calculated correctly." : "Incorrect atom economy calculations."),
+                        solution: subCrit.solution
+                    };
+                } else {
+                    const txt = document.getElementById('q5_b').value.toLowerCase().trim();
+                    let hits = subCrit.keywords.filter(k => txt.includes(k)).length;
+                    let mark = hits >= 3 ? 2 : (hits >= 1 ? 1 : 0);
+                    return {
+                        mark: mark,
+                        weight: 2,
+                        userVal: document.getElementById('q5_b').value,
+                        feedback: mark === 2 ? "Comprehensive evaluation: balanced atom economy against renewable feedstocks & toxic CO risks." : (mark === 1 ? "Good point raised regarding feedstock renewability or toxicity, but further evaluation needed." : "Incomplete evaluation of green chemistry criteria."),
+                        solution: subCrit.solution
+                    };
+                }
+            }
+        }
+
+        function getGrade(percent) {
+            // Specified boundaries:
+            // < 20% = Grade U / IB Grade 1
+            // 20 - 40% = Grade E / IB Grade 2
+            // 40 - 50% = Grade D / IB Grade 3
+            // 50 - 60% = Grade C / IB Grade 4
+            // 60 - 70% = Grade B / IB Grade 5
+            // 70 - 80% = Grade A / IB Grade 6
+            // > 80% = Grade A* / IB Grade 7
+            if (percent > 80) return { grade: "Grade A* / IB Grade 7", color: "bg-emerald-600" };
+            if (percent >= 70) return { grade: "Grade A / IB Grade 6", color: "bg-teal-600" };
+            if (percent >= 60) return { grade: "Grade B / IB Grade 5", color: "bg-cyan-600" };
+            if (percent >= 50) return { grade: "Grade C / IB Grade 4", color: "bg-sky-600" };
+            if (percent >= 40) return { grade: "Grade D / IB Grade 3", color: "bg-amber-600" };
+            if (percent >= 20) return { grade: "Grade E / IB Grade 2", color: "bg-orange-600" };
+            return { grade: "Grade U / IB Grade 1", color: "bg-rose-700" };
+        }
+
+        function toggleModal(show) {
+            const modal = document.getElementById('confirm-modal');
+            if (show) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function confirmSubmission() {
+            toggleModal(true);
+        }
+
+        function finishExam() {
+            toggleModal(false);
+            clearInterval(timerInterval);
+            
+            const timeSpentSecs = 1800 - timeLeft;
+            const minutesSpent = Math.floor(timeSpentSecs / 60);
+            const secondsSpent = timeSpentSecs % 60;
+            const formattedTime = `${minutesSpent}m ${secondsSpent}s`;
+
+            let overallScore = 0;
+            let containerHTML = "";
+
+            Object.keys(criteria).forEach((qKey) => {
+                const qData = criteria[qKey];
+                let questionScore = 0;
+                let questionMax = 0;
+                let partsHTML = "";
+
+                Object.keys(qData).forEach(pKey => {
+                    if (pKey === 'title') return;
+                    const subCriteria = qData[pKey];
+                    const res = scorePart(qKey, pKey, subCriteria);
+                    
+                    questionScore += res.mark;
+                    questionMax += res.weight;
+                    overallScore += res.mark;
+
+                    const statusColor = res.mark === res.weight ? 'text-emerald-600' : (res.mark > 0 ? 'text-amber-600' : 'text-rose-600');
+                    const statusIcon = res.mark === res.weight ? 'fa-check' : (res.mark > 0 ? 'fa-circle-half-stroke' : 'fa-xmark');
+
+                    partsHTML += `
+                        <div class="border-b border-slate-100 last:border-none py-4 space-y-2">
+                            <div class="flex justify-between items-start gap-4">
+                                <span class="text-sm font-semibold text-slate-800">Part (${pKey})</span>
+                                <span class="font-bold text-sm ${statusColor} flex items-center gap-1.5">
+                                    <i class="fa-solid ${statusIcon}"></i> ${res.mark} / ${res.weight} Marks
+                                </span>
+                            </div>
+                            <div class="text-xs space-y-1">
+                                <p class="text-slate-500"><strong class="text-slate-600 font-medium">Your response:</strong> <span class="italic font-mono bg-slate-50 px-2 py-0.5 rounded text-slate-800">${res.userVal || 'Empty'}</span></p>
+                                <p class="text-slate-500"><strong class="text-slate-600 font-medium">Examiner Assessment:</strong> ${res.feedback}</p>
+                            </div>
+                            <div class="mt-2 bg-slate-50 p-3 rounded-xl text-xs text-slate-700 leading-relaxed">
+                                <strong class="text-sky-800 block mb-1 font-semibold">Mark Scheme Solution:</strong>
+                                <div class="font-medium text-slate-900">${res.solution}</div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                containerHTML += `
+                    <div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 space-y-4">
+                        <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                            <h4 class="font-bold text-slate-900">${qData.title}</h4>
+                            <span class="bg-sky-50 text-sky-800 font-extrabold text-sm px-3 py-1 rounded-lg">
+                                ${questionScore} / ${questionMax} Marks
+                            </span>
+                        </div>
+                        <div class="divide-y divide-slate-100">${partsHTML}</div>
+                    </div>
+                `;
+            });
+
+            const percent = Math.round((overallScore / totalMarks) * 100);
+            const gradeInfo = getGrade(percent);
+
+            // Hide questions, display results
+            document.getElementById('exam-content').classList.add('hidden');
+            document.getElementById('results-section').classList.remove('hidden');
+            
+            document.getElementById('final-score').innerText = `${overallScore} / ${totalMarks}`;
+            document.getElementById('final-percent').innerText = `${percent}%`;
+            document.getElementById('final-time').innerText = formattedTime;
+
+            const badge = document.getElementById('grade-badge');
+            badge.innerText = gradeInfo.grade;
+            badge.className = `inline-block px-8 py-3 rounded-2xl text-white font-black text-2xl tracking-wide shadow-md ${gradeInfo.color}`;
+
+            document.getElementById('feedback-container').innerHTML = containerHTML;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
